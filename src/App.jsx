@@ -1,11 +1,13 @@
 import React,{useState, useEffect, createContext, useContext } from 'react';
 import Header from './components/Header';
 import CardsSection from './components/CardsSection';
+import CountryDetails from './components/CountryDetails';
 
 const AppContext = createContext();
 
 const App = () => {
   const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -22,9 +24,13 @@ const App = () => {
  
   return (
     <div className='max-w-[1440px] mx-auto'>
-      <AppContext.Provider value={{countries}}>
+      <AppContext.Provider value={{ countries,  setSelectedCountry }}>
         <Header />
-        <CardsSection />
+        {selectedCountry ? (
+          <CountryDetails country={selectedCountry} onBack={() => setSelectedCountry(null)} />
+        ) : (
+          <CardsSection />
+        )}
       </AppContext.Provider>
     </div>
   );
