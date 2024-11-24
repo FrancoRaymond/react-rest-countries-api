@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import arrowDark from '../assets/arrow-back-black.svg'
 import { useAppContext } from '../App'
 
 const CountryDetails = ({ country, onBack }) => {
 
-  const {theme, countries} = useAppContext()
+  const { countries } = useAppContext()
 
   function fullNameBorders(countries, country) {
     let full = [];

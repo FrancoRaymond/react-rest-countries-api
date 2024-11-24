@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppContext } from '../App';
 
 const CountryCard = ({ country }) => {
-  const { setSelectedCountry} = useAppContext();
+  const { setSelectedCountry } = useAppContext();
 
   return (
     <div
