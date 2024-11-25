@@ -11,6 +11,17 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem('theme', theme);
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -38,7 +49,7 @@ const App = () => {
 
   return (
     <div className='max-w-[1440px] mx-auto'>
-      <AppContext.Provider value={{ countries, filteredCountries, searchTerm, setSearchTerm, selectedRegion, setSelectedRegion, setSelectedCountry }}>
+      <AppContext.Provider value={{ countries, filteredCountries, searchTerm, setSearchTerm, selectedRegion, setSelectedRegion, setSelectedCountry, toggleTheme, theme }}>
         <Header />
         {selectedCountry ? (
           <CountryDetails country={selectedCountry} onBack={() => setSelectedCountry(null)} />

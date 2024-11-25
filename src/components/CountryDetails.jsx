@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import arrowDark from '../assets/arrow-back-black.svg'
+import arrowLight from '../assets/icons8-back-30.png'
 import { useAppContext } from '../App'
 
 const CountryDetails = ({ country, onBack }) => {
 
-  const { countries } = useAppContext()
+  const {theme, countries} = useAppContext()
 
   function fullNameBorders(countries, country) {
     let full = [];
@@ -27,7 +28,7 @@ const CountryDetails = ({ country, onBack }) => {
   return (
     <div className='countryDetails max-w-[1440px] relative w-full top-[180px] sm:top-[130px] bg-gray-50 py-7 px-4 sm:px-6 md:px-10 lg:px-20'>
       <button onClick={onBack} className='flex gap-3 shadow-sm shadow-gray-400 items-center px-5 py-2 bg-white rounded-md'>
-        <img src={arrowDark} alt="arrow back" className='w-5 h-5' />
+        <img src={theme === 'dark' ? arrowLight : arrowDark} alt="arrow back" className='w-5 h-5' />
         <span>Back</span>
       </button>
 

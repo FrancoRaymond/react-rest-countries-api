@@ -8,3 +8,66 @@ body{
     margin: 0 auto;
     max-width: 1440px;
 }
+.dark{
+   @apply bg-[#2b3743]
+}
+.light{
+    @apply bg-white
+}
+.dark .header1,
+.dark .card,
+.dark .countryDetails button {
+    @apply text-white bg-[#2b3743] transition-all duration-300;
+}
+
+.dark .cardSection,
+.dark .countryDetails,
+.dark .header2 {
+    @apply text-white bg-[#202d36] transition-all duration-300;
+}
+
+.dark .header2 div,
+.dark .header2 input {
+    @apply bg-[#2b3743] transition-all duration-300;
+}
+.dark .header2 select {
+    @apply bg-[#2b3743] text-white opacity-100 transition-all duration-300;
+}
+
+.dark .countryDetails span span {
+    @apply text-gray-400 transition-all duration-300;
+}
+
+.dark .card span {
+    @apply text-gray-300 transition-all duration-300;
+}
+
+.light .header1,
+.light .card,
+.light .countryDetails button {
+    @apply text-black bg-white transition-all duration-300;
+}
+
+.light .header2,
+.light .cardSection,
+.light .countryDetails {
+    @apply text-black bg-[#fafafa] transition-all duration-300;
+}
+
+.light .header2 div,
+.light .header2 input {
+    @apply bg-white transition-all duration-300;
+}
+
+.light .countryDetails span span {
+    @apply text-gray-500 transition-all duration-300;
+}
+
+.light .card span {
+    @apply text-gray-500 transition-all duration-300;
+}  
+.light .header2 select {
+    @apply bg-white text-black opacity-100 transition-all duration-300;
+}
+  
+
