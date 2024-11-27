@@ -33,13 +33,20 @@ body{
 .dark .header2 select {
     @apply bg-[#2b3743] text-white opacity-100 transition-all duration-300;
 }
-
 .dark .countryDetails span span {
     @apply text-gray-400 transition-all duration-300;
 }
-
 .dark .card span {
     @apply text-gray-300 transition-all duration-300;
+}
+.dark .header2 select {
+    @apply text-white opacity-100 transition-all duration-300 shadow-md shadow-gray-800;
+}
+.dark .header2 div {
+    @apply transition-all duration-300 shadow-md shadow-gray-800;
+}
+.dark .header1{
+    @apply transition-all duration-300 shadow-md shadow-gray-800
 }
 
 .light .header1,
@@ -67,7 +74,13 @@ body{
     @apply text-gray-500 transition-all duration-300;
 }  
 .light .header2 select {
-    @apply bg-white text-black opacity-100 transition-all duration-300;
+    @apply bg-white text-black opacity-100 transition-all duration-300 shadow-md shadow-gray-100;
+}
+.light .header2 div {
+    @apply transition-all duration-300 shadow-md shadow-gray-100;
+}
+.light .header1{
+    @apply transition-all duration-300 shadow-md shadow-gray-100
 }
   
 

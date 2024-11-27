@@ -12,7 +12,6 @@ const App = () => {
   const [selectedRegion, setSelectedRegion] = useState('');
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-
   
   useEffect(() => {
     document.body.className = theme;
@@ -46,6 +45,10 @@ const App = () => {
     });
     setFilteredCountries(filtered);
   }, [searchTerm, selectedRegion, countries]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [selectedCountry]);
 
   return (
     <div className='max-w-[1440px] mx-auto'>
