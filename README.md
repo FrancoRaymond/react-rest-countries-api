@@ -1,19 +1,19 @@
-## Rest countries api
+# Rest countries api
 
 - This is a React-based web application that provides detailed information about countries, utilizing a public API. It offers intuitive features for users to explore, search, and filter countries, all while enjoying a seamless and visually appealing interface.
 
-## Features
+# Features
 
-# Homepage
+## Homepage
 - View a list of all countries fetched from a public API.
 
-# Search
+## Search
 - Easily search for a country using an input field for quick access.
 
-# Filter
+## Filter
 - Filter countries by region (e.g., Asia, Europe, Africa) for better organization.
 
-# Detailed Information
+## Detailed Information
 - Click on any country to view more detailed information on a dedicated page, including:
 
 1. Flag
@@ -26,10 +26,10 @@
 8. Currencies
 9. Bordering countries
 
-# Dark Mode Toggle
+## Dark Mode Toggle
 - Switch between light and dark modes for a personalized browsing experience.
 
-# Technologies Used
+## Technologies Used
 - React: For building reusable components and managing application state.
 - Tailwind CSS: For creating a responsive and modern UI.
 - Vite: For fast development and optimized builds.
