@@ -6,26 +6,19 @@ const CountryCard = ({ country }) => {
   const { setSelectedCountry } = useAppContext();
 
   return (
-    <motion.div
+    <div
       onClick={() => setSelectedCountry(country)}
       className="card rounded-md overflow-hidden h-full cursor-pointer text-wrap"
-      initial={{
-        opacity: 0,
-        y: 30,      
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,      
-        transition: {
-          duration: 0.7,
-          ease: "easeOut", 
-        },
-      }}
-      viewport={{
-        once: true,
-      }}
     >
-      <img src={country.flags.svg} alt="" className="w-full min-h-44 h-[50vw] sm:h-[30vw] md:h-[0vw] object-cover shadow-sm shadow-gray-500" />
+      <motion.img 
+        src={country.flags.svg} 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
+        viewport={{ once: true }}
+        alt="" 
+        className="w-full min-h-44 h-[50vw] sm:h-[30vw] md:h-[0vw] object-cover shadow-sm shadow-gray-500" 
+      />
       <div className="p-4">
         <h3 className="text-xl mb-3 font-bold">{country.name.common}</h3>
         <div className="flex flex-col gap-1 pl-1">
@@ -34,7 +27,7 @@ const CountryCard = ({ country }) => {
           <p className="flex"><strong>Capital:</strong><span className={` ml-[6px]`}>{country.capital}</span></p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
