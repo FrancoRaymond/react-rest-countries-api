@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAppContext } from '../App';
-import {motion } from 'framer-motion'
 
 const CountryCard = ({ country }) => {
   const { setSelectedCountry } = useAppContext();
@@ -10,13 +9,9 @@ const CountryCard = ({ country }) => {
       onClick={() => setSelectedCountry(country)}
       className="card rounded-md overflow-hidden h-full cursor-pointer text-wrap"
     >
-      <motion.img 
+      <img 
         src={country.flags.svg} 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: 'easeInOut' }}
-        viewport={{ once: true }}
-        alt="" 
+        alt={country.name.common} 
         className="w-full min-h-44 h-[50vw] sm:h-[30vw] md:h-[0vw] object-cover shadow-sm shadow-gray-500" 
       />
       <div className="p-4">
