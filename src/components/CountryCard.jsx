@@ -5,7 +5,7 @@ const CountryCard = ({ country }) => {
   const { setSelectedCountry } = useAppContext();
 
   return (
-    <div
+    <button
       onClick={() => setSelectedCountry(country)}
       className="card rounded-md overflow-hidden h-full cursor-pointer text-wrap"
     >
@@ -22,7 +22,7 @@ const CountryCard = ({ country }) => {
           <p className="flex"><strong>Capital:</strong><span className={` ml-[6px]`}>{country.capital}</span></p>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 

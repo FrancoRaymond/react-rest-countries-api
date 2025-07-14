@@ -3,8 +3,7 @@ import arrowDark from '../assets/arrow-back-black.svg'
 import arrowLight from '../assets/icons8-back-30.png'
 import { useAppContext } from '../App'
 
-const CountryDetails = ({ country, onBack }) => {
-
+const CountryDetails = () => {
   const {theme, countries} = useAppContext()
 
   function fullNameBorders(countries, country) {
@@ -21,16 +20,16 @@ const CountryDetails = ({ country, onBack }) => {
     }
     return full;
   }
-  
+
   return (
     <div className='countryDetails max-w-[1440px] relative w-full top-[180px] sm:top-[130px] bg-gray-50 py-4 px-4 sm:px-6 md:px-10 lg:px-20'>
-      <button onClick={onBack} className='flex gap-3 shadow-sm shadow-gray-400 items-center px-5 py-1 bg-white rounded-md'>
+      <button className='flex gap-3 shadow-sm shadow-gray-400 items-center px-5 py-1 bg-white rounded-md'>
         <img src={theme === 'dark' ? arrowLight : arrowDark} alt="arrow back" className='w-5 h-5' />
         <span>Back</span>
       </button>
       <div className='mt-7 flex flex-col gap-5 md:flex-row lg:items-center lg:justify-between'>
         <img 
-          src={country.flags.svg} 
+          src={country.flags["png"]} 
           alt={`${country.cca3} flag`} 
           className='w-full max-w-lg h-[50vw] md:h-[25vw] md:w-1/2 min-h-[180px] object-cover'
         />
@@ -59,7 +58,7 @@ const CountryDetails = ({ country, onBack }) => {
         </div>
       </div>
     </div>
-  )
+    )
 }
 
 export default CountryDetails

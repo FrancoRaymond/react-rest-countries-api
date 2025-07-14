@@ -49,6 +49,7 @@ body{
     @apply transition-all duration-300 shadow-md shadow-gray-800
 }
 
+
 .light .header1,
 .light .card,
 .light .countryDetails button {

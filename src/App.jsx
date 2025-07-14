@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
+import {Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import CardsSection from './components/CardsSection';
-import CountryDetails from './components/CountryDetails';
 
 const AppContext = createContext();
 
@@ -25,7 +25,7 @@ const App = () => {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch('https://restcountries.com/v3.1/all');
+        const response = await fetch('https://restcountries.com/v3.1/all?fields=cca3,name,population,region,subregion,capital,tld,currencies,borders,flags');
         const data = await response.json();
         setCountries(data);
         setFilteredCountries(data);
@@ -35,6 +35,7 @@ const App = () => {
     };
     fetchCountries();
   }, []);
+
 
   useEffect(() => {
     const filtered = countries.filter((country) => {
@@ -46,6 +47,23 @@ const App = () => {
     setFilteredCountries(filtered);
   }, [searchTerm, selectedRegion, countries]);
 
+useEffect(() => {
+  if (!Array.isArray(countries)) return;  
+
+  const filtered = countries.filter(country => {
+    const matchesSearch =
+      (country?.name?.common ?? "")
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+
+    const matchesRegion =
+      selectedRegion ? country.region === selectedRegion : true;
+
+    return matchesSearch && matchesRegion;
+  });
+
+  setFilteredCountries(filtered);
+}, [searchTerm, selectedRegion, countries]);
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [selectedCountry]);
@@ -54,11 +72,10 @@ const App = () => {
     <div className='max-w-[1440px] mx-auto'>
       <AppContext.Provider value={{ countries, filteredCountries, searchTerm, setSearchTerm, selectedRegion, setSelectedRegion, setSelectedCountry, toggleTheme, theme }}>
         <Header />
-        {selectedCountry ? (
-          <CountryDetails country={selectedCountry} onBack={() => setSelectedCountry(null)} />
-        ) : (
-          <CardsSection />
-        )}
+        <Routes>
+          <Route path='/' element={ <CardsSection /> }/>
+          <Route path='*' element={ <CardsSection /> }/>
+        </Routes>
       </AppContext.Provider>
     </div>
   );
