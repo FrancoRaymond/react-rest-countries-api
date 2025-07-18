@@ -1,7 +1,8 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import {Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import CardsSection from './components/CardsSection';
+import CountryDetails from './components/CountryDetails';
 
 const AppContext = createContext();
 
@@ -64,6 +65,7 @@ useEffect(() => {
 
   setFilteredCountries(filtered);
 }, [searchTerm, selectedRegion, countries]);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [selectedCountry]);
@@ -74,6 +76,7 @@ useEffect(() => {
         <Header />
         <Routes>
           <Route path='/' element={ <CardsSection /> }/>
+          <Route path="/country/:name" element={<CountryDetails />} /> 
           <Route path='*' element={ <CardsSection /> }/>
         </Routes>
       </AppContext.Provider>

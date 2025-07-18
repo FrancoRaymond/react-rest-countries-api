@@ -54,7 +54,7 @@ const Header = () => {
           autoComplete='off'
           value={selectedRegion}
           onChange={handleRegionChange}
-          className={`py-2 px-4 outline-none rounded-md mt-3 sm:mt-0 overflow-hidden transition-all duration-300 ease-in-out`}
+          className={`py-2 px-4 cursor-pointer outline-none rounded-md mt-3 sm:mt-0 overflow-hidden transition-all duration-300 ease-in-out`}
         >
           <option value="">Filter by region</option>
           <option value="Africa">Africa</option>
