@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import arrowDark from '../assets/arrow-back-black.svg'
 import arrowLight from '../assets/icons8-back-30.png'
 import { useAppContext } from '../App'
+import ScrollTop from './ScrollTop'
 
 const CountryDetails = () => {
   const { theme, filteredCountries } = useAppContext()
@@ -29,6 +30,7 @@ const CountryDetails = () => {
 
   return (
     <div className='countryDetails max-w-[1440px] relative w-full top-[54px] sm:top-[58px] bg-gray-50 py-4 px-4 sm:px-6 md:px-10 lg:px-20 z-50'>
+      <ScrollTop />
       <button onClick={() => navigate(-1)} className='flex gap-3 shadow-sm shadow-gray-400 items-center px-5 py-1 bg-white rounded-md'>
         <img src={theme === 'dark' ? arrowLight : arrowDark} alt="arrow back" className='w-5 h-5' />
         <span>Back</span>
@@ -52,7 +54,6 @@ const CountryDetails = () => {
             <div className='flex flex-col gap-2 mt-5 lg:mt-0'>
               <span className='flex'><strong>Top Level Domain:</strong><span className='text-gray-600 ml-2'>{country.tld?.[0] || 'N/A'}</span></span>
               <span className='flex'><strong>Currencies:</strong><span className='text-gray-600 ml-2'>{Object.values(country.currencies || {}).map(currency => currency.name).join(', ') || 'N/A'}</span></span>
-              <span className='flex'><strong>Languages:</strong><span className='text-gray-600 ml-2'>{Object.values(country.languages || {}).join(', ') || 'N/A'}</span></span>
             </div>
           </div>
           <span className="flex flex-wrap items-center gap-2 mt-5">
