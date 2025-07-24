@@ -22,9 +22,8 @@
 4. Region and subregion
 5. Capital city
 6. Top-level domain
-7. Languages
-8. Currencies
-9. Bordering countries
+7. Currencies
+8. Bordering countries
 
 ## Dark Mode Toggle
 - Switch between light and dark modes for a personalized browsing experience.
